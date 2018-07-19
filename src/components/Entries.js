@@ -1,9 +1,9 @@
-import React from "react"
+import React from 'react'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
-export const Entries = (post, imagesArray) => {
-	function renderPostImage(path, imagesArray) {
+export const Entries = ({ post, imagesArray }) => {
+	function renderPostImage (path, imagesArray) {
 		console.log('renderPostImage')
 		let comparePath = path.split('/img/')
 		comparePath = comparePath.length == 2 ? comparePath[1] : ''
@@ -24,7 +24,7 @@ export const Entries = (post, imagesArray) => {
 	return (
 		<div
 			className="content card"
-			style={{border: '1px solid #eaecee', padding: '2em 4em'}}
+			style={{ border: '20px solid #eaecee', padding: '2em 4em' }}
 			key={post.id}
 		>
 			<p>
@@ -34,7 +34,7 @@ export const Entries = (post, imagesArray) => {
 				<span> &bull; </span>
 				<small>{post.frontmatter.date}</small>
 			</p>
-			{this.renderPostImage(post.frontmatter.postimage, imagesArray)}
+			{renderPostImage(post.frontmatter.postimage, imagesArray)}
 			<p>
 				{post.excerpt}
 				<br/>

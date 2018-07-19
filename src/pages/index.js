@@ -1,45 +1,45 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {Entries} from "../components/Entries";
+import React from "react";
+import PropTypes from "prop-types";
+import { Entries } from "../components/Entries";
 
 export default class IndexPage extends React.Component {
 
-	render() {
-		const {data} = this.props
-		const {allFile} = data
-		const {edges: posts} = data.allMarkdownRemark
-		let imagesArray = []
-		allFile.edges.map(({node: file}) => imagesArray.push(file))
+  render () {
+    const { data } = this.props;
+    const { allFile } = data;
+    const { edges: posts } = data.allMarkdownRemark;
+    let imagesArray = [];
+    allFile.edges.map(({ node: file }) => imagesArray.push(file));
 
-		return (
-			<section>
-				<div className="global-splash">
-					<div className="splash-content">
-						<h1 className="splash-heading">Nyentek Articles</h1>
-						<p className="splash-subheading">Blah Blah Blah</p>
-					</div>
-				</div>
-				<div className="container">
-					<div className="content">
-						<h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-					</div>
-					{posts
-						.map(({node: post}) => (
-							<div></div>
-						))}
-				</div>
-			</section>
-		)
-	}
+    return (
+      <section>
+        <div className="global-splash">
+          <div className="splash-content">
+            <h1 className="splash-heading">Nyentek Articles</h1>
+            <p className="splash-subheading">Blah Blah Blah</p>
+          </div>
+        </div>
+        <div className="container">
+          <div className="content">
+            <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
+          </div>
+          {posts
+            .map(({ node: post }) => (
+              <Entries key={post.frontmatter.title} {...{ post, imagesArray }}/>
+            ))}
+        </div>
+      </section>
+    );
+  }
 }
 
 IndexPage.propTypes = {
-	data: PropTypes.shape({
-		allMarkdownRemark: PropTypes.shape({
-			edges: PropTypes.array
-		})
-	})
-}
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array
+    })
+  })
+};
 
 export const pageQuery = graphql`
   query IndexQuery {
@@ -77,4 +77,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
