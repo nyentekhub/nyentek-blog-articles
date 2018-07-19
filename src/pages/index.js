@@ -25,6 +25,7 @@ export default class IndexPage extends React.Component {
 					</div>
 					{posts
 						.map(({node: post}) => (
+							<div></div>
 						))}
 				</div>
 			</section>
