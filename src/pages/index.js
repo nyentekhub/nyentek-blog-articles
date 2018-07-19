@@ -25,7 +25,6 @@ export default class IndexPage extends React.Component {
 					</div>
 					{posts
 						.map(({node: post}) => (
-							<Entries {{post, imagesArray}}/>
 						))}
 				</div>
 			</section>
