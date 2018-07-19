@@ -6,13 +6,13 @@ import Link from 'gatsby-link'
 import Content, { HTMLContent } from '../components/Content'
 
 export const BlogPostTemplate = ({
-  content,
-  contentComponent,
-  description,
-  tags,
-  title,
-  helmet,
-}) => {
+                                   content,
+                                   contentComponent,
+                                   description,
+                                   tags,
+                                   title,
+                                   helmet
+                                 }) => {
   const PostContent = contentComponent || Content
 
   return (
@@ -21,11 +21,11 @@ export const BlogPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            <h1 className="heading copy-following">
               {title}
             </h1>
             <p>{description}</p>
-            <PostContent content={content} />
+            <PostContent content={content}/>
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
@@ -50,7 +50,7 @@ BlogPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet),
+  helmet: PropTypes.instanceOf(Helmet)
 }
 
 const BlogPost = ({ data }) => {
@@ -61,7 +61,7 @@ const BlogPost = ({ data }) => {
       content={post.html}
       contentComponent={HTMLContent}
       description={post.frontmatter.description}
-      helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
+      helmet={<Helmet title={`${post.frontmatter.title} | Blog`}/>}
       tags={post.frontmatter.tags}
       title={post.frontmatter.title}
     />
@@ -70,8 +70,8 @@ const BlogPost = ({ data }) => {
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
+    markdownRemark: PropTypes.object
+  })
 }
 
 export default BlogPost
@@ -84,6 +84,7 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+        postimage
         description
         tags
       }

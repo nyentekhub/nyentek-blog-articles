@@ -1,41 +1,25 @@
-import React from 'react'
-import Link from 'gatsby-link'
-
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import React from "react";
+import { Logo } from "./Logo.js";
 
 const Navbar = () => (
-  <nav className="navbar is-transparent">
-    <div className="container">
-      <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-          <figure className="image">
-            <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-          </figure>
-        </Link>
-      </div>
-      <div className="navbar-start">
-        <Link className="navbar-item" to="/about">
-          About
-        </Link>
-        <Link className="navbar-item" to="/products">
-          Products
-        </Link>
-      </div>
-      <div className="navbar-end">
-        <a
-          className="navbar-item"
-          href="https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="icon">
-            <img src={github} alt="Github" />
-          </span>
-        </a>
-      </div>
-    </div>
-  </nav>
-)
+  <header id="header-global">
+    <Logo/>
+    <button type="button" id="overflow-menu-trigger" title="Open Navigation Menu">
+      <i className="material-icons">view_list</i>
+      <span className="screen-reader-text">Open Navigation Menu</span>
+    </button>
+    <nav id="navigation">
+      <h2 className="screen-reader-text">Site Navigation</h2>
+      <ul className="navigation-options">
+        <li className="navigation-options-item">
+          <a href="https://nyentekmaster.netlify.com/projects" id="nav-studies">Featured Projects</a>
+        </li>
+        <li className="navigation-options-item">
+          <a href="https://nyentekmaster.netlify.com/#contact-section-form" id="nav-contact">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+);
 
-export default Navbar
+export default Navbar;
