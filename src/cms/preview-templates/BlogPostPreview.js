@@ -11,7 +11,6 @@ const BlogPostPreview = ({ entry, widgetFor }) => (
   />
 )
 
-
 BlogPostPreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
