@@ -1,0 +1,15 @@
+export const siteConfig = {
+	siteTitle: 'Nyentek Articles Web Site',
+	siteTitleAlt: 'Nyentek Articles',
+	siteLogo: '/logos/logo-512x512.png',
+	siteUrl: 'https://www.nyentek.com',
+	pathPrefix: '/',
+	siteDescription: 'Nyentek Blog Articles',
+	siteRss: '/rss.xml',
+	siteFBAppID: '',
+	googleTagManagerID: '',
+	userName: 'Nyentek Articles',
+	userLocation: 'Livermore, CA',
+	userDescription: '',
+	copyright: 'Copyright © Nyentek 2018. All Rights Reserved.',
+}
